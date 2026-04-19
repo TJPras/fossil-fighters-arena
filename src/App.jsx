@@ -6,7 +6,7 @@ import { PhaserGame } from './PhaserGame';
 function App ()
 {
     // The sprite can only be moved in the MainMenu Scene
-    const [canMoveSprite, setCanMoveSprite] = useState(true);
+    const [canMoveSprite, setCanMoveSprite] = useState(false);
     
     //  References to the PhaserGame component (game and scene are exposed)
     const phaserRef = useRef();
@@ -70,7 +70,7 @@ function App ()
         
     }
 
-    return (
+    const defaultApp = (
         <div id="app">
             <PhaserGame ref={phaserRef} currentActiveScene={currentScene} />
             <div>
@@ -89,6 +89,23 @@ function App ()
             </div>
         </div>
     )
+
+    if (phaserRef.current === undefined) {
+        return defaultApp
+    }
+
+    switch (phaserRef.current.scene.scene.key) {
+        case 'Login':
+            return (
+                <div id="app">
+                    <PhaserGame ref={phaserRef} currentActiveScene={currentScene} />
+                </div>
+            )
+        
+        default:
+            return defaultApp
+    }
+
 }
 
 export default App

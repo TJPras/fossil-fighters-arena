@@ -1,3 +1,14 @@
+# Fossil Fighters Arena
+
+## How to run
+To run the client, run `npm run dev`
+
+To run the server, first build the client
+`npm run build`
+
+Then launch the server
+`node .\server.js`
+
 # Phaser React Template
 
 This is a Phaser 3 project template that uses the React framework and Vite for bundling. It includes a bridge for React to Phaser game communication, hot-reloading for quick development workflow and scripts to generate production-ready builds.
